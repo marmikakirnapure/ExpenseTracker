@@ -29,49 +29,71 @@ These instructions explain how to set up the project and use what has been devel
 ### Installation
 
 1. **Clone the Repository**:
+```
     git clone https://github.com/keonleebv/FinanceTracker.git
     cd FinanceTracker
+```
 
-2. **Setup Virtual Env**:
+3. **Setup Virtual Env**:
+```
     python -m venv virtual
-    virtual\Scripts\activate
+```
+On Windows:
+```
+    virtual\Scripts\activate.bat
+```
+On Linux:
+```
+    source virtual\Scripts\activate
+```
 
-3. **Install Dependencies**:
+5. **Install Dependencies**:
+```
     pip install -r requirements.txt 
+```
 
 ### Running
 
 1. **Start application**:
+```
     python main.py
+```
 
-2. **Access application**:
+3. **Access application**:
     ctrl+click on the browser: http://127.0.0.1:5000/ to interact with the API.
 
-3. **Interacting with the API**:
+5. **Interacting with the API**:
     I use Invoke-WebRequest to test API functionality
 
     Add a Transaction:
-
+    ```
     Invoke-WebRequest -Uri http://127.0.0.1:5000/add_transaction -Method Post -Body '{"date": "2024-08-10", "description": "Grocery Shopping", "category": "Expense", "amount": 150.75}' -ContentType "application/json"
+    ```
 
     View Transactions:
-
+    ```
     Invoke-WebRequest -Uri http://127.0.0.1:5000/transactions -Method Get
+    ```
 
     Add a Budget:
-
+    ```
     Invoke-WebRequest -Uri http://127.0.0.1:5000/add_budget -Method Post -Body '{"category": "Food", "amount": 500}' -ContentType "application/json"
+    ```
 
     Compare Budgets:
-
+    ```
     Invoke-WebRequest -Uri http://127.0.0.1:5000/compare_budget -Method Get
+    ```
 
     Export Budgets to CSV:
+    ```
+    Invoke-WebRequest -Uri http://127.0.0.1:5000/export_budgets_to_csv -Method
+    ```
 
-    Invoke-WebRequest -Uri http://127.0.0.1:5000/export_budgets_to_csv -Method 
-
-4. **Testing**:
-    pytest 
+7. **Testing**:
+```
+    pytest
+```
 
 # Agile Development Process
 
